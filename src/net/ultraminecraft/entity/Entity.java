@@ -14,8 +14,12 @@ public abstract class Entity {
 		if (maxhealth < 1.0f)
 			throw new IllegalStateException("health cannot be minor to one");
 		
+		if (name != null)
+			this.denominator = name;
+		else
+			this.denominator = type;
+		
 		this.maxhealth = maxhealth;
-		this.denominator = name;
 		this.type = type;
 	}
 	
