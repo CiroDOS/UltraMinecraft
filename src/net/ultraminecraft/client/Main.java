@@ -2,30 +2,27 @@ package net.ultraminecraft.client;
 
 import org.sibermatica.util.logging.Logger;
 
-import guest.mojang.render.RenderDragon;
-import net.ultraminecraft.config.GameConfig;
+import com.guest.render.RenderDragon;
 
-public class UltraMinecraft implements Runnable {
+import net.ultraminecraft.config.GameConfig;
+import net.ultraminecraft.world.Level;
+
+public class Main implements Runnable {
 
 	private static RenderDragon RenderSYSTEM = new RenderDragon();
 	private static final Logger LOGGER = new Logger(
 			"[${HOUR_24}:${MINUTE}:${SECOND}] [${CLASS_SIMPLE_NAME}/$Upper{LOGGING_LEVEL}]: ${MESSAGE}");
-	private static final UltraMinecraft INSTANCE = new UltraMinecraft();
 
-	private UltraMinecraft() {
-	}
-
-	public static UltraMinecraft getCurrentInstance() {
-		return UltraMinecraft.INSTANCE;
+	private Main() {
 	}
 
 	public static void launch(String[] args) {
 		GameConfig.parseArguments(args);
-		UltraMinecraft.getCurrentInstance().run();
+		new Main().run();
 	}
 
 	public static void main(String[] args) {
-		UltraMinecraft.launch(args);
+		Main.launch(args);
 	}
 
 	@Override
@@ -41,17 +38,16 @@ public class UltraMinecraft implements Runnable {
 		}
 
 		while (running) {
-			this.runStep();
+			tick();
+			RenderSYSTEM.render();
 		}
 
 	}
 
-	private void runStep() {
-		this.tick();
-		RenderSYSTEM.render();
-	}
-
 	private void tick() {
+		if (Level.currentLevel() != null)
+			Level.currentLevel().onTick();
+			
 	}
 
 }

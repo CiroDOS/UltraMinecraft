@@ -1,4 +1,4 @@
-package guest.mojang.render;
+package com.guest.render;
 
 import java.awt.BorderLayout;
 import java.awt.Canvas;
@@ -14,8 +14,9 @@ import java.io.InputStream;
 import javax.imageio.ImageIO;
 import javax.swing.JFrame;
 
-import guest.mojang.render.screen.GameWorldScreen;
-import guest.mojang.render.screen.MenuScreen;
+import com.guest.render.screen.WorldScreen;
+import com.guest.render.screen.MenuScreen;
+
 import net.ultraminecraft.config.GameConfig;
 import net.ultraminecraft.config.Workspace;
 import net.ultraminecraft.crash.CrashReport;
@@ -31,8 +32,8 @@ public class RenderDragon extends Canvas {
 	public void paint(Graphics g) {
 		if (ScreenResource.getActiveWindow().equals(ScreenResource.MENU_SCREEN)) {
 			new MenuScreen(frame).render(g);
-		} else if (ScreenResource.getActiveWindow().equals(ScreenResource.GAME_WORLD)) {
-			new GameWorldScreen(frame).render(g);
+		} else if (ScreenResource.getActiveWindow().equals(ScreenResource.WORLD_SCREEN)) {
+			new WorldScreen(frame).render(g);
 		}
 	}
 

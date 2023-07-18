@@ -1,6 +1,6 @@
-package guest.mojang.render.screen;
+package com.guest.render.screen;
 
-import static guest.mojang.render.RenderDragon.bindTexture;
+import static com.guest.render.RenderDragon.bindTexture;
 
 import java.awt.Graphics;
 
@@ -8,11 +8,11 @@ import javax.swing.JFrame;
 
 import net.ultraminecraft.util.Resource;
 
-public class GameWorldScreen extends Screen {
+public class WorldScreen extends Screen {
 
 	public static final Resource RESOURCE = Resource.get("game_world");
 	
-	public GameWorldScreen(JFrame frame) {
+	public WorldScreen(JFrame frame) {
 		super(frame);
 	}
 
@@ -21,7 +21,7 @@ public class GameWorldScreen extends Screen {
 		
 		for (int i = 0; i < frame.getWidth(); i += 128) {
 			for (int j = 0; j < frame.getHeight(); j += 128) {
-				g.drawImage(bindTexture("\\gui\\dark_dirt_background.png"), i, j, 128, 128, null);
+				g.drawImage(bindTexture("\\gui\\background.png"), i, j, 128, 128, null);
 			}
 		}
 		

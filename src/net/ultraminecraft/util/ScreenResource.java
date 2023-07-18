@@ -1,13 +1,13 @@
 package net.ultraminecraft.util;
 
-import guest.mojang.render.screen.GameWorldScreen;
-import guest.mojang.render.screen.MenuScreen;
-import guest.mojang.render.screen.Screen;
+import com.guest.render.screen.WorldScreen;
+import com.guest.render.screen.MenuScreen;
+import com.guest.render.screen.Screen;
 
 public final class ScreenResource extends Resource {
 
 	public static final ScreenResource MENU_SCREEN = ScreenResource.get(1, "menu_screen", true);
-	public static final ScreenResource GAME_WORLD = ScreenResource.get(2, "game_world", true);
+	public static final ScreenResource WORLD_SCREEN = ScreenResource.get(2, "game_world", true);
 
 	private static ScreenResource activeWindow = MENU_SCREEN;
 
@@ -52,15 +52,15 @@ public final class ScreenResource extends Resource {
 
 	public static ScreenResource fromResource(Resource resource) {
 		return switch(resource.toString()) {
-			case "minecraft:game_world" -> ScreenResource.GAME_WORLD;
+			case "minecraft:game_world" -> ScreenResource.WORLD_SCREEN;
 			case "minecraft:menu_screen" -> ScreenResource.MENU_SCREEN;
 			default -> null;
 		};
 	}
 	
 	public static ScreenResource toResource(Screen screen) {
-		if (screen instanceof GameWorldScreen)
-			return fromResource(GameWorldScreen.RESOURCE);
+		if (screen instanceof WorldScreen)
+			return fromResource(WorldScreen.RESOURCE);
 		
 		if (screen instanceof MenuScreen)
 			return fromResource(MenuScreen.RESOURCE);

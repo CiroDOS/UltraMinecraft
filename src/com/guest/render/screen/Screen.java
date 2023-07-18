@@ -1,4 +1,4 @@
-package guest.mojang.render.screen;
+package com.guest.render.screen;
 
 import java.awt.Graphics;
 
