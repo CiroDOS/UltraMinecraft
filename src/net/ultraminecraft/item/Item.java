@@ -10,7 +10,7 @@ import static com.guest.render.RenderDragon.*;
 
 public class Item {
 	
-	public static Item WOODEN_PICKAXE = new Item(ComponentTranslator.translate("minecraft.item:wooden_pickaxe"), null, new Image[] {bindTexture("\\item\\wooden_pickage.png")}, false, true, false, new Material[] {Material.NETHERITE, Material.METAL}, 23);
+	public static Item WOODEN_PICKAXE = new Item(ComponentTranslator.translate("minecraft.item:wooden_pickaxe"), null, new Image[] {bindTexture("/item/wooden_pickage.png")}, false, true, false, new Material[] {Material.NETHERITE, Material.METAL}, 23);
 
 	protected final String name;
 	protected final String[] lore;

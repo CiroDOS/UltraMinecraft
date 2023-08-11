@@ -8,9 +8,10 @@ public abstract class Entity {
 	public static final float DEFAULT_VELOCITY = 0.0f;
 	
 	protected final float maxhealth;
+	protected final float height;
 	protected float health = 1.0f;
 	protected float damageLevel = 0.1f;
-
+	
 	protected FriendshipLevel friendshipLvl = FriendshipLevel.NEUTRAL;
 	protected boolean canBeDomesticated = false;
 	protected boolean domesticated = false;
@@ -22,13 +23,13 @@ public abstract class Entity {
 	protected boolean falling = false;
 	protected boolean destroyed;
 	protected Direction direction = Direction.NORTH;
-	protected final float weight;
+
 	protected float velocity = Entity.DEFAULT_VELOCITY;
 
 	private String denominator;
 	private final String type;
 
-	public Entity(String name, String type, float maxhealth, float weight) {
+	public Entity(String name, String type, float maxhealth, float height) {
 		if (name != null)
 			this.denominator = name;
 		else
@@ -36,7 +37,7 @@ public abstract class Entity {
 
 		this.maxhealth = maxhealth;
 		this.type = type;
-		this.weight = weight;
+		this.height = height;
 	}
 
 	enum FriendshipLevel {
@@ -107,10 +108,6 @@ public abstract class Entity {
 		this.x = x;
 		this.y = y;
 		this.z = z;
-	}
-
-	public final float getWeight() {
-		return weight;
 	}
 
 	public final void destroy() {

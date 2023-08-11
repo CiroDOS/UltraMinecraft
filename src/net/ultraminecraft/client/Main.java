@@ -5,7 +5,6 @@ import org.sibermatica.util.logging.Logger;
 import com.guest.render.RenderDragon;
 
 import net.ultraminecraft.config.GameConfig;
-import net.ultraminecraft.world.Level;
 
 public class Main implements Runnable {
 
@@ -45,8 +44,7 @@ public class Main implements Runnable {
 	}
 
 	private void tick() {
-		if (Level.currentLevel() != null)
-			Level.currentLevel().onTick();
+		Timer.tick();
 			
 	}
 

@@ -21,7 +21,7 @@ public class WorldScreen extends Screen {
 		
 		for (int i = 0; i < frame.getWidth(); i += 128) {
 			for (int j = 0; j < frame.getHeight(); j += 128) {
-				g.drawImage(bindTexture("\\gui\\background.png"), i, j, 128, 128, null);
+				g.drawImage(bindTexture("/gui/background.png"), i, j, 128, 128, null);
 			}
 		}
 		

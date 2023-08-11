@@ -39,7 +39,7 @@ public class Level {
 	private ByteArrayOutputStream chat = new ByteArrayOutputStream();
 	private ByteArrayOutputStream old_chat = chat;
 
-	public static final float GRAVITY = 0.3f; // TODO: Test the gravity
+	public static final float GRAVITY = 9.8f; // TODO: Test the gravity
 	public static final String WORLD_EXTENSION = ".epk"; // TODO: Test the gravity
 
 	public static class GameRules {

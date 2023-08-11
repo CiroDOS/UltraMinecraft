@@ -12,7 +12,7 @@ public class ArrowEntity extends Entity {
 	
 
 	public ArrowEntity() {
-		super(null, "Arrow", -1.0f, 0.9f);
+		super(null, "Arrow", -1.0f, 1.0f);
 	}
 
 	@Override
@@ -30,7 +30,7 @@ public class ArrowEntity extends Entity {
 		}
 
 		if (isFalling()) {
-			velocity -= Level.GRAVITY * getWeight();
+			velocity -= Level.GRAVITY / 2;
 		}
 
 		if (x == target_x && y == target_y && z == target_z) {
